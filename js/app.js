@@ -74,7 +74,6 @@ function navBuild() {
         newLi.appendChild(navButton);
         navButton.addEventListener('click', function (e) {
             setActiveClass(e)
-            navButton.setAttribute('class',)
         });
     }
 }
@@ -110,7 +109,7 @@ for (const key in rect) {
 window.addEventListener('scroll', (e) => {
 
     // get all sections on the page
-    const sections = document.querySelectorAll('class');
+    var sections = Array.from(document.getElementsByTagName("section"));
   
     // loop through each section
     sections.forEach( section => {
@@ -119,11 +118,13 @@ window.addEventListener('scroll', (e) => {
       const topDistance = section.getBoundingClientRect().top;
   
       // if the distance to the top is between 0-100px
-      if (topDistance > 0 && topDistance < 100) {
+      if (topDistance > -50 && topDistance < 150) {
         section.classList.add('your-active-class');
-  
+      }
       // otherwise, remove the class
-      } else {
+      
+      
+      else {
         section.classList.remove('your-active-class');
       }
     });
